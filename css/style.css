@@ -16,6 +16,10 @@ header {
   height: 90px;
 }
 
+p {
+  margin-bottom: 0;
+}
+
 /* Utils */
 
 .circle {
