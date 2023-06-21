@@ -1,0 +1,57 @@
+body {
+  height: 100vh;
+  background: rgb(0, 150, 136);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 150, 136, 1) 15%,
+    rgba(216, 219, 213, 1) 15%
+  );
+  overflow: hidden;
+}
+
+#root {
+  height: 95vh;
+  width: 80vw;
+  background-color: white;
+  margin: auto;
+}
+
+.contacts {
+  flex-basis: 35%;
+}
+
+.chat {
+  flex-basis: 65%;
+}
+
+.contacts-header,
+.chat-header {
+  background-color: #eaeaea;
+  height: 90px;
+}
+
+.notifies {
+  height: 100px;
+  background-color: #8edafc;
+}
+
+.searchbar-container {
+  background-color: #eaeaea;
+  height: 50px;
+}
+
+.contacts-list {
+  height: calc(100% - 240px);
+  overflow: auto;
+}
+
+.chat-body {
+  height: calc(100% - 190px);
+  background-image: url("../img/mine.jpg");
+  overflow: auto;
+}
+
+.write-message-container {
+  background-color: #f3eeea;
+  height: 100px;
+}
