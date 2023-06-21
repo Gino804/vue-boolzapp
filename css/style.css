@@ -50,6 +50,7 @@ p {
 .icons > i {
   color: #b1b1b1;
   margin-right: 25px;
+  cursor: pointer;
 }
 
 .notifies {
@@ -87,6 +88,7 @@ p {
 
 .contact {
   border-bottom: 1px solid #f6f6f6;
+  cursor: pointer;
 }
 
 /* Chat */
@@ -99,6 +101,22 @@ p {
   height: calc(100% - 190px);
   background-image: url("../img/mine.jpg");
   overflow: auto;
+}
+
+.message {
+  padding: 10px;
+  width: 400px;
+  border-radius: 10px;
+  margin: 5px 0;
+}
+
+.message.sent {
+  background-color: #d5f9ba;
+  align-self: flex-end;
+}
+
+.message.received {
+  background-color: white;
 }
 
 .write-message-container {
