@@ -62,8 +62,18 @@ header {
 }
 
 .searchbar-container {
-  background-color: #eaeaea;
+  background-color: #fafafa;
   height: 50px;
+}
+
+.searchbar-container i {
+  color: #b1b1b1;
+  left: 25px;
+  bottom: 15px;
+}
+
+#searchbar {
+  border: 1px solid #f6f6f6;
 }
 
 .contacts-list {
