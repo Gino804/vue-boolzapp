@@ -81,6 +81,10 @@ header {
   overflow: auto;
 }
 
+.contact {
+  border-bottom: 1px solid #f6f6f6;
+}
+
 /* Chat */
 
 .chat {
