@@ -73,32 +73,13 @@
 
           <!-- Contacts list -->
           <div class="contacts-list">
-            <div class="contact d-flex py-2">
+            <div v-for="contact in contacts" class="contact d-flex py-2">
               <div class="pfp circle ms-4">
-                <img src="img/avatar_1.jpg" alt="Michele" />
+                <img
+                  :src="'img/avatar' + contact.avatar + '.jpg'"
+                  :alt="contact.name" />
               </div>
-              <p class="fs-5 ms-3">Michele</p>
-            </div>
-
-            <div class="contact d-flex py-2">
-              <div class="pfp circle ms-4">
-                <img src="img/avatar_2.jpg" alt="Fabio" />
-              </div>
-              <p class="fs-5 ms-3">Fabio</p>
-            </div>
-
-            <div class="contact d-flex py-2">
-              <div class="pfp circle ms-4">
-                <img src="img/avatar_3.jpg" alt="Samuele" />
-              </div>
-              <p class="fs-5 ms-3">Samuele</p>
-            </div>
-
-            <div class="contact d-flex py-2">
-              <div class="pfp circle ms-4">
-                <img src="img/avatar_4.jpg" alt="Luisa" />
-              </div>
-              <p class="fs-5 ms-3">Luisa</p>
+              <p class="fs-5 ms-3">{{ contact.name }}</p>
             </div>
           </div>
         </div>
