@@ -1,3 +1,5 @@
+/* Generics */
+
 body {
   height: 100vh;
   background: rgb(0, 150, 136);
@@ -9,6 +11,20 @@ body {
   overflow: hidden;
 }
 
+header {
+  background-color: #eaeaea;
+  height: 90px;
+}
+
+/* Utils */
+
+.circle {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}
+
+/* Root */
 #root {
   height: 95vh;
   width: 80vw;
@@ -16,24 +32,10 @@ body {
   margin: auto;
 }
 
+/* Contacts */
+
 .contacts {
   flex-basis: 35%;
-}
-
-.chat {
-  flex-basis: 65%;
-}
-
-.contacts-header,
-.chat-header {
-  background-color: #eaeaea;
-  height: 90px;
-}
-
-.pfp {
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
 }
 
 .pfp > img {
@@ -51,6 +53,14 @@ body {
   background-color: #8edafc;
 }
 
+.fa-bell-slash {
+  color: #8edafc;
+}
+
+.notifies p {
+  font-size: 18px;
+}
+
 .searchbar-container {
   background-color: #eaeaea;
   height: 50px;
@@ -59,6 +69,12 @@ body {
 .contacts-list {
   height: calc(100% - 240px);
   overflow: auto;
+}
+
+/* Chat */
+
+.chat {
+  flex-basis: 65%;
 }
 
 .chat-body {

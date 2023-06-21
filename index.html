@@ -28,10 +28,12 @@
   <body>
     <main class="h-100 w-100 d-flex align-items-center">
       <div id="root" class="d-flex">
+        <!-- Contacts -->
         <div class="contacts h-100">
-          <div class="contacts-header d-flex justify-content-between">
+          <!-- Contacts header -->
+          <header class="d-flex justify-content-between">
             <div class="user h-100 d-flex align-items-center">
-              <div class="pfp ms-3">
+              <div class="pfp circle ms-3">
                 <img src="img/eziogreggio.jpg" alt="Foto utente" />
               </div>
               <p class="mb-0 ms-2 fs-5">Ezio Greggio</p>
@@ -41,13 +43,30 @@
               <i class="fa-solid fa-message"></i>
               <i class="fa-solid fa-ellipsis-vertical"></i>
             </div>
+          </header>
+
+          <!-- Notifies -->
+          <div class="notifies d-flex align-items-center">
+            <div
+              class="circle bg-white ms-4 d-flex align-items-center justify-content-center">
+              <i class="fa-solid fa-bell-slash fs-3"></i>
+            </div>
+            <div class="ms-3">
+              <p class="mb-0 fw-semibold">Ricevi notifiche di nuovi messaggi</p>
+              <a href="#" class="text-secondary"> Attiva notifiche desktop </a>
+            </div>
           </div>
-          <div class="notifies"></div>
+
+          <!-- Searchbar -->
           <div class="searchbar-container"></div>
+
+          <!-- Contacts list -->
           <div class="contacts-list"></div>
         </div>
+
+        <!-- Chat -->
         <div class="chat h-100">
-          <div class="chat-header"></div>
+          <header></header>
           <div class="chat-body"></div>
           <div class="write-message-container"></div>
         </div>
