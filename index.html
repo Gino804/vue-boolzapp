@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Boolzapp</title>
 
+    <!-- Fontawesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer" />
+
     <!-- Bootstrap -->
     <link
       rel="stylesheet"
@@ -21,7 +29,19 @@
     <main class="h-100 w-100 d-flex align-items-center">
       <div id="root" class="d-flex">
         <div class="contacts h-100">
-          <div class="contacts-header"></div>
+          <div class="contacts-header d-flex justify-content-between">
+            <div class="user h-100 d-flex align-items-center">
+              <div class="pfp ms-3">
+                <img src="img/eziogreggio.jpg" alt="Foto utente" />
+              </div>
+              <p class="mb-0 ms-2 fs-5">Ezio Greggio</p>
+            </div>
+            <div class="icons h-100 d-flex align-items-center fs-3">
+              <i class="fa-solid fa-circle-notch"></i>
+              <i class="fa-solid fa-message"></i>
+              <i class="fa-solid fa-ellipsis-vertical"></i>
+            </div>
+          </div>
           <div class="notifies"></div>
           <div class="searchbar-container"></div>
           <div class="contacts-list"></div>

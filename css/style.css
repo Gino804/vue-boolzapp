@@ -30,6 +30,22 @@ body {
   height: 90px;
 }
 
+.pfp {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}
+
+.pfp > img {
+  width: 100%;
+  border-radius: 50%;
+}
+
+.icons > i {
+  color: #b1b1b1;
+  margin-right: 25px;
+}
+
 .notifies {
   height: 100px;
   background-color: #8edafc;
