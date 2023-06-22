@@ -119,6 +119,15 @@
               v-for="message in activeContact.messages"
               :class="message.status"
               class="message">
+              <div
+                class="select"
+                v-show="message.id === clickedMessage.id"
+                @click="deleteMessage">
+                Elimina
+              </div>
+              <i
+                class="fa-solid fa-chevron-down"
+                @click="toggleMessageClicked(message.id)"></i>
               {{ message.message }}
               <p class="text-end pt-1">{{ message.date }}</p>
             </div>

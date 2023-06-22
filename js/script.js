@@ -5,6 +5,7 @@ const app = Vue.createApp({
       activeContact: {},
       messageText: "",
       searchedText: "",
+      clickedMessage: {},
       user: {
         name: "Nome Utente",
         avatar: "_io",
@@ -218,6 +219,9 @@ const app = Vue.createApp({
       this.contacts.forEach((contact) => {
         if (contact.id === id) this.activeContact = contact;
       });
+
+      // Per fare in modo che, se un messaggio è stato cliccato nella chat precedente, non venga preso nella chat attuale
+      this.clickedMessage = {};
     },
 
     // Funzione per ottenere la data corrente nel giusto formato
@@ -275,6 +279,25 @@ const app = Vue.createApp({
           status: "received",
         });
       }, 1000);
+    },
+
+    // Funzione per rendere un messaggio cliccato
+    toggleMessageClicked(id) {
+      this.activeContact.messages.forEach((message) => {
+        if (message.id === id) {
+          if (id === this.clickedMessage.id) this.clickedMessage = {};
+          else this.clickedMessage = message;
+        }
+      });
+    },
+
+    // Funzione per eliminare un messaggio
+    deleteMessage() {
+      this.activeContact.messages = this.activeContact.messages.filter(
+        (message) => {
+          if (this.clickedMessage.id !== message.id) return message;
+        }
+      );
     },
   },
   mounted() {

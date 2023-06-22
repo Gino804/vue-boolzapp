@@ -109,10 +109,40 @@ p {
   overflow-wrap: break-word;
   border-radius: 10px;
   margin: 5px 0;
+  position: relative;
 }
 
 .message > p {
   font-size: 11px;
+}
+
+.message > i {
+  display: none;
+  position: absolute;
+  left: calc(100% - 30px);
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  background-color: white;
+}
+
+.message.sent > i {
+  background-color: #d5f9ba;
+}
+
+.message:hover > i {
+  display: block;
+}
+
+.message > .select {
+  position: absolute;
+  left: calc(100% - 32px);
+  bottom: 50px;
+  background-color: white;
+  padding: 5px 10px;
+  border: 1px solid black;
+  cursor: pointer;
 }
 
 .message.sent {
