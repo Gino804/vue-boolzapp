@@ -26,10 +26,10 @@
   </head>
 
   <body>
-    <main class="h-100 w-100 d-flex align-items-center">
+    <div class="h-100 w-100 d-flex align-items-center">
       <div id="root" class="d-flex">
         <!-- Contacts -->
-        <div class="contacts h-100">
+        <div id="contacts" class="h-100">
           <!-- Contacts header -->
           <header class="d-flex justify-content-between">
             <div class="user h-100 d-flex align-items-center">
@@ -48,7 +48,7 @@
           </header>
 
           <!-- Notifies -->
-          <div class="notifies d-flex align-items-center">
+          <section id="notifies" class="d-flex align-items-center">
             <div
               class="circle bg-white ms-4 d-flex align-items-center justify-content-center">
               <i class="fa-solid fa-bell-slash fs-3"></i>
@@ -57,11 +57,12 @@
               <p class="fw-semibold">Ricevi notifiche di nuovi messaggi</p>
               <a href="#" class="text-secondary"> Attiva notifiche desktop </a>
             </div>
-          </div>
+          </section>
 
           <!-- Searchbar -->
-          <div
-            class="searchbar-container d-flex align-items-center p-2 position-relative">
+          <section
+            id="searchbar-container"
+            class="d-flex align-items-center p-2 position-relative">
             <label for="searchbar"
               ><i class="fa-solid fa-magnifying-glass position-absolute"></i
             ></label>
@@ -71,10 +72,10 @@
               id="searchbar"
               placeholder="Cerca o inizia una nuova chat"
               class="h-100 w-100 ps-5" />
-          </div>
+          </section>
 
           <!-- Contacts list -->
-          <div class="contacts-list">
+          <section id="contacts-list">
             <div
               v-for="contact in contacts"
               @click="setActiveContact(contact.id)"
@@ -86,11 +87,11 @@
               </div>
               <p class="fs-5 ms-3">{{ contact.name }}</p>
             </div>
-          </div>
+          </section>
         </div>
 
         <!-- Chat -->
-        <div class="chat h-100">
+        <div id="chat" class="h-100">
           <!-- Chat header -->
           <header class="d-flex justify-content-between">
             <div class="h-100 d-flex align-items-center">
@@ -112,28 +113,29 @@
           </header>
 
           <!-- Chat body -->
-          <div class="chat-body pt-5 px-5 pb-3 d-flex flex-column">
+          <section id="chat-body" class="pt-5 px-5 pb-3 d-flex flex-column">
             <div
               v-for="message in activeContact.messages"
               :class="(message.status === 'sent') ? 'sent' : 'received'"
               class="message">
               {{ message.message }}
             </div>
-          </div>
+          </section>
 
           <!-- Message -->
-          <div
-            class="write-message d-flex justify-content-between align-items-center px-5 py-3">
+          <section
+            id="write-message"
+            class="d-flex justify-content-between align-items-center px-5 py-3">
             <i class="fa-regular fa-face-smile fs-3"></i>
             <input
               type="text"
               placeholder="Scrivi un messaggio"
               class="w-100 h-100 mx-4 ps-3 border-0" />
             <i class="fa-solid fa-microphone fs-3"></i>
-          </div>
+          </section>
         </div>
       </div>
-    </main>
+    </div>
     <script src="js/script.js"></script>
   </body>
 </html>

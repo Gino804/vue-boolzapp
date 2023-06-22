@@ -33,7 +33,7 @@ p {
 
 /* Contacts */
 
-.contacts {
+#contacts {
   flex-basis: 35%;
 }
 
@@ -48,7 +48,7 @@ p {
   cursor: pointer;
 }
 
-.notifies {
+#notifies {
   height: 100px;
   background-color: #8edafc;
 }
@@ -57,16 +57,16 @@ p {
   color: #8edafc;
 }
 
-.notifies p {
+#notifies p {
   font-size: 18px;
 }
 
-.searchbar-container {
+#searchbar-container {
   background-color: #fafafa;
   height: 50px;
 }
 
-.searchbar-container i {
+#searchbar-container i {
   color: #b1b1b1;
   left: 25px;
   bottom: 15px;
@@ -76,7 +76,7 @@ p {
   border: 1px solid #f6f6f6;
 }
 
-.contacts-list {
+#contacts-list {
   height: calc(100% - 240px);
   overflow: auto;
 }
@@ -92,11 +92,11 @@ p {
 
 /* Chat */
 
-.chat {
+#chat {
   flex-basis: 65%;
 }
 
-.chat-body {
+#chat-body {
   height: calc(100% - 180px);
   background-image: url("../img/mine.jpg");
   overflow: auto;
@@ -118,15 +118,15 @@ p {
   background-color: white;
 }
 
-.write-message {
+#write-message {
   background-color: #f3eeea;
   height: 90px;
 }
 
-.write-message > i {
+#write-message > i {
   color: #6b7376;
 }
 
-.write-message > input {
+#write-message > input {
   border-radius: 5px;
 }
