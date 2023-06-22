@@ -116,7 +116,7 @@
           <section id="chat-body" class="pt-5 px-5 pb-3 d-flex flex-column">
             <div
               v-for="message in activeContact.messages"
-              :class="(message.status === 'sent') ? 'sent' : 'received'"
+              :class="message.status"
               class="message">
               {{ message.message }}
             </div>

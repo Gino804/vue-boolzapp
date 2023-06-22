@@ -125,6 +125,7 @@ p {
 
 #write-message > i {
   color: #6b7376;
+  cursor: pointer;
 }
 
 #write-message > input {
