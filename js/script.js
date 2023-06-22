@@ -3,6 +3,7 @@ const app = Vue.createApp({
   data() {
     return {
       activeContact: {},
+      messageText: "",
       user: {
         name: "Nome Utente",
         avatar: "_io",
@@ -203,13 +204,42 @@ const app = Vue.createApp({
   },
   computed: {},
   methods: {
+    // Funzione per settare il contatto attivo
     setActiveContact(id) {
       this.contacts.forEach((contact) => {
         if (contact.id === id) this.activeContact = contact;
       });
     },
+    // Funzione per inviare un messaggio
+    sendMessage() {
+      // Salvo in delle variabili tutti i pezzi della data attuale
+      const date = new Date();
+      let day = date.getDay();
+      let month = date.getMonth();
+      let year = date.getFullYear();
+      let hours = date.getHours();
+      let minutes = date.getMinutes();
+      let seconds = date.getSeconds();
+
+      // Per ogni pezzo della data (tranne l'anno), se è minore di 10, aggiungo uno 0 all'inizio
+      if (day < 10) day = `0${day}`;
+      if (month < 10) month = `0${month}`;
+      if (hours < 10) hours = `0${hours}`;
+      if (minutes < 10) minutes = `0${minutes}`;
+      if (seconds < 10) seconds = `0${seconds}`;
+
+      // Inserisco il nuovo messaggio nell'array dei messaggi
+      this.activeContact.messages.push({
+        id: date.getTime(),
+        date: `${day}/${month}/${year} ${hours}:${minutes}:${seconds}`,
+        message: this.messageText,
+        status: "sent",
+      });
+      this.messageText = "";
+    },
   },
   mounted() {
+    // All'avvio dell'applicazione, il contatto attivo è di default il primo della lista
     this.activeContact = this.contacts[0];
   },
 });

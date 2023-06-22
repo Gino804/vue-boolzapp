@@ -131,7 +131,9 @@
             <input
               type="text"
               placeholder="Scrivi un messaggio"
-              class="w-100 h-100 mx-4 ps-3 border-0" />
+              class="w-100 h-100 mx-4 ps-3 border-0"
+              v-model="messageText"
+              @keyup.enter="sendMessage" />
             <i class="fa-solid fa-microphone fs-3"></i>
           </section>
         </div>
