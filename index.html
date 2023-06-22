@@ -34,9 +34,11 @@
           <header class="d-flex justify-content-between">
             <div class="user h-100 d-flex align-items-center">
               <div class="pfp circle ms-3">
-                <img src="img/avatar_io.jpg" alt="Foto utente" />
+                <img
+                  :src="'img/avatar' + user.avatar + '.jpg'"
+                  alt="Profile picture" />
               </div>
-              <p class="ms-2 fs-5">Nome Utente</p>
+              <p class="ms-2 fs-5">{{ user.name }}</p>
             </div>
             <div class="icons h-100 d-flex align-items-center fs-3">
               <i class="fa-solid fa-circle-notch"></i>
@@ -73,7 +75,10 @@
 
           <!-- Contacts list -->
           <div class="contacts-list">
-            <div v-for="contact in contacts" class="contact d-flex py-2">
+            <div
+              v-for="contact in contacts"
+              @click="setActiveContact(contact.id)"
+              class="contact d-flex py-2">
               <div class="pfp circle ms-4">
                 <img
                   :src="'img/avatar' + contact.avatar + '.jpg'"
@@ -90,10 +95,12 @@
           <header class="d-flex justify-content-between">
             <div class="h-100 d-flex align-items-center">
               <div class="pfp circle ms-3">
-                <img src="img/avatar_1.jpg" alt="Michele" />
+                <img
+                  :src="'img/avatar' + activeContact.avatar + '.jpg'"
+                  :alt="activeContact.name" />
               </div>
               <div class="ms-2">
-                <p class="fs-5">Michele</p>
+                <p class="fs-5">{{ activeContact.name }}</p>
                 <p class="text-secondary">Ultimo accesso oggi alle</p>
               </div>
             </div>
@@ -106,43 +113,11 @@
 
           <!-- Chat body -->
           <div class="chat-body pt-5 px-5 pb-3 d-flex flex-column">
-            <div class="message sent">Messaggio 1</div>
-            <div class="message received">Messaggio 2</div>
-            <div class="message sent">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla
-              nostrum cupiditate explicabo architecto sit obcaecati maxime est,
-              magni pariatur accusantium aut veniam sequi accusamus blanditiis
-              vero nisi illum aspernatur dolor. Natus ut incidunt harum
-              voluptas. Quia eveniet mollitia expedita quibusdam ratione aut
-              quis sunt reprehenderit est a, atque voluptates ducimus ab
-              molestiae molestias quae amet vero, minima consectetur laborum at!
-            </div>
-            <div class="message received">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-              Reprehenderit ullam necessitatibus sed ipsam, tempora repellat
-              minus nostrum. Placeat, dolorem necessitatibus voluptas nemo quae
-              reprehenderit qui fugiat rerum odit nesciunt nisi?
-            </div>
-            <div class="message received">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-              Reprehenderit ullam necessitatibus sed ipsam, tempora repellat
-              minus nostrum. Placeat, dolorem necessitatibus voluptas nemo quae
-              reprehenderit qui fugiat rerum odit nesciunt nisi?
-            </div>
-            <div class="message received">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-              Reprehenderit ullam necessitatibus sed ipsam, tempora repellat
-              minus nostrum. Placeat, dolorem necessitatibus voluptas nemo quae
-              reprehenderit qui fugiat rerum odit nesciunt nisi?
-            </div>
-            <div class="message sent">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla
-              nostrum cupiditate explicabo architecto sit obcaecati maxime est,
-              magni pariatur accusantium aut veniam sequi accusamus blanditiis
-              vero nisi illum aspernatur dolor. Natus ut incidunt harum
-              voluptas. Quia eveniet mollitia expedita quibusdam ratione aut
-              quis sunt reprehenderit est a, atque voluptates ducimus ab
-              molestiae molestias quae amet vero, minima consectetur laborum at!
+            <div
+              v-for="message in activeContact.messages"
+              :class="(message.status === 'sent') ? 'sent' : 'received'"
+              class="message">
+              {{ message.message }}
             </div>
           </div>
 

@@ -91,6 +91,10 @@ p {
   cursor: pointer;
 }
 
+.contact:hover {
+  background-color: #f6f6f6;
+}
+
 /* Chat */
 
 .chat {

@@ -2,6 +2,7 @@ const app = Vue.createApp({
   name: "Boolzapp",
   data() {
     return {
+      activeContact: {},
       user: {
         name: "Nome Utente",
         avatar: "_io",
@@ -199,6 +200,17 @@ const app = Vue.createApp({
         },
       ],
     };
+  },
+  computed: {},
+  methods: {
+    setActiveContact(id) {
+      this.contacts.forEach((contact) => {
+        if (contact.id === id) this.activeContact = contact;
+      });
+    },
+  },
+  mounted() {
+    this.activeContact = this.contacts[0];
   },
 });
 
