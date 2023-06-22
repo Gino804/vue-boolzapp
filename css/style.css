@@ -104,9 +104,14 @@ p {
 
 .message {
   padding: 10px;
-  width: 400px;
+  padding-bottom: 2px;
+  width: 350px;
   border-radius: 10px;
   margin: 5px 0;
+}
+
+.message > p {
+  font-size: 11px;
 }
 
 .message.sent {
