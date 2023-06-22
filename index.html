@@ -67,6 +67,7 @@
               ><i class="fa-solid fa-magnifying-glass position-absolute"></i
             ></label>
             <input
+              v-model="searchedText"
               type="text"
               name="searchbar"
               id="searchbar"
@@ -77,7 +78,7 @@
           <!-- Contacts list -->
           <section id="contacts-list">
             <div
-              v-for="contact in contacts"
+              v-for="contact in filteredContacts"
               @click="setActiveContact(contact.id)"
               class="contact d-flex py-2">
               <div class="pfp circle ms-4">

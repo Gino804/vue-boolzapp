@@ -4,6 +4,7 @@ const app = Vue.createApp({
     return {
       activeContact: {},
       messageText: "",
+      searchedText: "",
       user: {
         name: "Nome Utente",
         avatar: "_io",
@@ -202,7 +203,15 @@ const app = Vue.createApp({
       ],
     };
   },
-  computed: {},
+  computed: {
+    // Filtro i contatti tramite il testo nella barra di ricerca
+    filteredContacts() {
+      const filteredContacts = this.contacts.filter((contact) =>
+        contact.name.toLowerCase().includes(this.searchedText.toLowerCase())
+      );
+      return filteredContacts;
+    },
+  },
   methods: {
     // Funzione per settare il contatto attivo
     setActiveContact(id) {
