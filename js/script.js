@@ -210,10 +210,10 @@ const app = Vue.createApp({
         if (contact.id === id) this.activeContact = contact;
       });
     },
-    // Funzione per inviare un messaggio
-    sendMessage() {
-      // Salvo in delle variabili tutti i pezzi della data attuale
-      const date = new Date();
+
+    // Funzione per ottenere la data corrente nel giusto formato
+    getDate(date) {
+      // Salvo in delle variabili tutti i pezzi della data passata come parametro
       let day = date.getDay();
       let month = date.getMonth();
       let year = date.getFullYear();
@@ -228,14 +228,44 @@ const app = Vue.createApp({
       if (minutes < 10) minutes = `0${minutes}`;
       if (seconds < 10) seconds = `0${seconds}`;
 
+      // Restituisco una stringa con la data completa
+      return `${day}/${month}/${year} ${hours}:${minutes}:${seconds}`;
+    },
+
+    // Funzione per inviare un messaggio
+    sendMessage() {
+      // Salvo in delle variabili tutti i pezzi della data attuale
+      const date = new Date();
+
       // Inserisco il nuovo messaggio nell'array dei messaggi
       this.activeContact.messages.push({
         id: date.getTime(),
-        date: `${day}/${month}/${year} ${hours}:${minutes}:${seconds}`,
+        date: this.getDate(date),
         message: this.messageText,
         status: "sent",
       });
+
+      // Svuoto il testo del messaggio
       this.messageText = "";
+
+      // Invio la risposta
+      this.sendReply();
+    },
+
+    // Funzione per inviare la risposta del contatto
+    sendReply() {
+      // Creo un timeout di un secondo
+      setTimeout(() => {
+        const date = new Date();
+
+        // Inserisco il nuovo messaggio nell'array dei messaggi
+        this.activeContact.messages.push({
+          id: date.getTime(),
+          date: this.getDate(date),
+          message: "Ok",
+          status: "received",
+        });
+      }, 1000);
     },
   },
   mounted() {
