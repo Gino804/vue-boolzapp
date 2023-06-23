@@ -245,21 +245,26 @@ const app = Vue.createApp({
       return `${day}/${month}/${year} ${hours}:${minutes}:${seconds}`;
     },
 
+    // Funzione per aggiungere un messaggio
+    addMessage(text, status) {
+      const date = new Date();
+
+      // Inserisco il nuovo messaggio nella chat corrente
+      this.activeContact.messages.push({
+        id: date.getTime(),
+        date: this.getDate(date),
+        message: text,
+        status: status,
+      });
+    },
+
     // Funzione per inviare un messaggio
     sendMessage() {
       // Se il messaggio è vuoto, non eseguo la funzione
       if (this.messageText === "") return;
 
-      // Salvo in delle variabili tutti i pezzi della data attuale
-      const date = new Date();
-
-      // Inserisco il nuovo messaggio nell'array dei messaggi
-      this.activeContact.messages.push({
-        id: date.getTime(),
-        date: this.getDate(date),
-        message: this.messageText,
-        status: "sent",
-      });
+      // Inserisco il messaggio
+      this.addMessage(this.messageText, "sent");
 
       // Svuoto il testo del messaggio
       this.messageText = "";
@@ -272,15 +277,8 @@ const app = Vue.createApp({
     sendReply() {
       // Creo un timeout di un secondo
       setTimeout(() => {
-        const date = new Date();
-
-        // Inserisco il nuovo messaggio nell'array dei messaggi
-        this.activeContact.messages.push({
-          id: date.getTime(),
-          date: this.getDate(date),
-          message: "Ok",
-          status: "received",
-        });
+        // Inserisco il messaggio
+        this.addMessage("Ok", "received");
       }, 1000);
     },
 
