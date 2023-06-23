@@ -247,6 +247,9 @@ const app = Vue.createApp({
 
     // Funzione per inviare un messaggio
     sendMessage() {
+      // Se il messaggio è vuoto, non eseguo la funzione
+      if (this.messageText === "") return;
+
       // Salvo in delle variabili tutti i pezzi della data attuale
       const date = new Date();
 
